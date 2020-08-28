@@ -9,7 +9,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
 
-    def transform(self, X):
+    def transform(self, X, y):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
         datay = y.copy()
