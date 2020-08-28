@@ -13,5 +13,5 @@ class DropColumns(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
-        print('ok4')
+        print('ok6')
         return data.drop(labels=self.columns, axis='columns')
