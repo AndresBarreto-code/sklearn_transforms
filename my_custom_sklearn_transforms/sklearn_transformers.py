@@ -7,15 +7,11 @@ class DropColumns(BaseEstimator, TransformerMixin):
         self.columns = columns
 
     def fit(self, X, y=None):
+        y.replace(['Aceptado','Sospechoso'],[1,0])
         return self
 
-    def transform(self, X, y):
+    def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
-        datay = y.copy()
         print('ok4')
-        return [data.drop(labels=self.columns, axis='columns'),datay.replace(['Aceptado','Sospechoso'],[1,0])]
-    def transform2(self, y):
-        data = y.copy()
-        print('ok2')
-        return data.replace(['Aceptado','Sospechoso'],[1,0])
+        return data.drop(labels=self.columns, axis='columns')
