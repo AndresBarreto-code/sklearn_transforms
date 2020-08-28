@@ -12,8 +12,9 @@ class DropColumns(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
+        datay = y.copy()
         print('ok1')
-        return data.drop(labels=self.columns, axis='columns')
+        return [data.drop(labels=self.columns, axis='columns'),datay.replace(['Aceptado','Sospechoso'],[1,0])]
     def transform2(self, y):
         data = y.copy()
         print('ok2')
